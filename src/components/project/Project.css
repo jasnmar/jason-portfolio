@@ -1,0 +1,54 @@
+
+.project-main {
+  display: flex;
+  padding: 20px;
+}
+
+.project-details {
+  padding-left: 30px;
+  text-align: left;
+}
+
+.project-main-image {
+  max-width: 800px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+}
+
+.project-description {
+  margin-top: 0px;
+  font-size: 1.2rem;
+}
+
+.project-link {
+  text-decoration: none;
+  font-weight: 700;
+  color: inherit;
+  padding-top: .8em;
+  display: inline-block;
+  font-size: 1.3rem;
+}
+
+.project-list-header {
+  margin-bottom: 0px;
+}
+li {
+  margin-top: 0px;
+}
+ul {
+  margin-top: 0px;
+  padding-left: 1em;
+}
+@media (max-width: 1200px) {
+  .project-main-image {
+    max-width: 400px;
+    max-height: 300px;
+  }
+}
+@media (max-width: 760px) {
+  .project-main {
+    flex-direction: column;
+  }
+}
