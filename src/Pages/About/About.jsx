@@ -10,8 +10,15 @@ function About() {
 
   return (
     <>
-      <h1>About</h1>
+      <h1>About Me</h1>
+      <h2>Work History</h2>
       {jobList}
+      <h2>Other Stuff</h2>
+      Web Development
+      Avid Motorcyclist
+      Amature Machinist / Instructor
+      Electronics
+
     </>
   )
 }

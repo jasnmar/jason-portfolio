@@ -1,0 +1,32 @@
+.employment--job-card {
+  width: 90vw;
+  margin: 0 auto;
+  cursor: pointer;
+  background: var(--color-pale);
+  border: .2rem solid var(--color-pale);
+  margin-top: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.employment--header {
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem;
+}
+
+.employment--header > h2 {
+  color: var(--color-light)
+}
+
+.employment--description {
+  margin-top: 1rem;
+  text-align: left;
+  padding: .5rem .5rem;
+  background: var(--color-light)
+}
+
+.employment--u-hidden {
+  display: none;
+
+
+}
