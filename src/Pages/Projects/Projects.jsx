@@ -11,8 +11,7 @@ function Projects() {
 
   return (
     <>
-      <h1>My Work</h1>
-      <h2>Offroad Driving Instructor</h2>
+      <h1>Projects</h1>
       <hr></hr>
       <p className="projects-text"></p>
       {projectList}

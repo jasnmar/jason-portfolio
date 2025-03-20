@@ -6,7 +6,7 @@ function Home() {
     <>
       <section className="main">
         <div className='home--bio'>
-          <img className='home--main-image' src={jasoncity}></img>
+          <img alt="A photo of Jason in a city setting" className='home--main-image' src={jasoncity}></img>
           <div className="home--bio-text">
             <h1>Hi, I&apos;m jason martin</h1>
             <p className="home--headline">Technologist, Facilitator, Instructor</p>

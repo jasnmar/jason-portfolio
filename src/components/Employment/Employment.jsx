@@ -18,7 +18,7 @@ function Employment({ data }) {
         <h2>{jobTitle} - {employer}, {location}</h2>
         <h2>{startDate} - {endDate}</h2>
       </div>
-      <p id={descId} className="employment--description">{description}</p>
+      <p id={descId} className="employment--description employment--u-hidden">{description}</p>
     </div>
 
     </>

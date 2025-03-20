@@ -1,9 +1,11 @@
 .employment--job-card {
   width: 90vw;
-  padding: 2rem;
   margin: 0 auto;
   cursor: pointer;
-  background: var(--color-dark);
+  background: var(--color-pale);
+  border: .2rem solid var(--color-pale);
+  margin-top: 1rem;
+  border-radius: var(--border-radius);
 }
 
 .employment--header {
@@ -19,10 +21,12 @@
 .employment--description {
   margin-top: 1rem;
   text-align: left;
-  padding: 0 .5rem;
-  background: var(--color-pale)
+  padding: .5rem .5rem;
+  background: var(--color-light)
 }
 
 .employment--u-hidden {
   display: none;
+
+
 }
