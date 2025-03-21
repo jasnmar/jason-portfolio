@@ -4,19 +4,19 @@
   margin-right: 1.5rem;
   cursor: pointer;
   background: var(--color-dark);
-  border: .2rem solid var(--color-dark);
   margin-top: 1rem;
   border-radius: var(--border-radius);
-  height: 3.5rem;
   overflow-y: clip;
-  transition: height 1s ease-in-out;
+  height: min-content;
   interpolate-size: allow-keywords;
+  margin-bottom: 0;
 }
 
 .employment--header {
   display: flex;
   justify-content: space-between;
   padding: .5rem;
+  overflow-y: clip;
 }
 
 .employment--header > h2 {
@@ -24,13 +24,14 @@
 }
 
 .employment--description {
-  margin-top: 1rem;
   text-align: left;
-  padding: .5rem .5rem;
   background: var(--color-light);
-  height: auto;
   line-height: 1.4rem;
   font-size: 1.2rem;
+  transition: 
+    height 1s ease-in-out;
+  height: 0px;
+
 }
 
 .employment--description > ul {
@@ -40,7 +41,10 @@
   line-height: 1.5rem;
 }
 
-.employment--u-hidden {
-  height: auto;
+.employment--description > p {
+  padding: .5rem .5rem 0rem .5rem;
+}
 
+.employment--u-hidden {
+  height: min-content;
 }
