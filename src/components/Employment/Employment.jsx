@@ -13,7 +13,10 @@ function Employment({ data }) {
   let bullets = []
   if(bulletList?.length > 0) {
     bullets = bulletList.map((bullet) => {
-      return <li key={bullet}>{bullet}</li>
+      return <li key={bullet}>
+        <ReactMarkdown>
+          {bullet}
+        </ReactMarkdown></li>
     })
   }
   const jobId = "job" + data.id
@@ -25,7 +28,10 @@ function Employment({ data }) {
         <h2>{jobTitle} - {employer}, {location}</h2>
         <h2>{startDate} - {endDate}</h2>
       </div>
-      <div id={descId} className="employment--description"><ReactMarkdown>{description}</ReactMarkdown>
+      <div id={descId} className="employment--description">
+        <ReactMarkdown>
+          {description}
+        </ReactMarkdown>
       {bullets ? <ul>{bullets}</ul>: ""}
       </div>
     </div>
@@ -42,8 +48,8 @@ function clickRespond(e) {
   }
   element = element.parentElement
   const jobId = element.id
-  // const descId = jobId + "desc"
-  const description = document.getElementById(jobId)
+  const descId = jobId + "desc"
+  const description = document.getElementById(descId)
   if(description.classList.contains("employment--u-hidden")) {
     description.classList.remove("employment--u-hidden")
   } else {
