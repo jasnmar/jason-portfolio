@@ -1,11 +1,16 @@
 .employment--job-card {
-  width: 90vw;
   margin: 0 auto;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   cursor: pointer;
-  background: var(--color-pale);
-  border: .2rem solid var(--color-pale);
+  background: var(--color-dark);
+  border: .2rem solid var(--color-dark);
   margin-top: 1rem;
   border-radius: var(--border-radius);
+  height: 3.5rem;
+  overflow-y: clip;
+  transition: height 1s ease-in-out;
+  interpolate-size: allow-keywords;
 }
 
 .employment--header {
@@ -22,11 +27,20 @@
   margin-top: 1rem;
   text-align: left;
   padding: .5rem .5rem;
-  background: var(--color-light)
+  background: var(--color-light);
+  height: auto;
+  line-height: 1.4rem;
+  font-size: 1.2rem;
+}
+
+.employment--description > ul {
+  margin: 1rem;
+}
+.employment--description > ul > li {
+  line-height: 1.5rem;
 }
 
 .employment--u-hidden {
-  display: none;
-
+  height: auto;
 
 }
