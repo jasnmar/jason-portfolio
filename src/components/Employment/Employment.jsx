@@ -1,51 +1,49 @@
 import "./Employment.css"
 import PropTypes from "prop-types"
+import ReactMarkdown from 'react-markdown'
 
 function Employment({ data }) {
-  console.log('data: ', data)
   const jobTitle = data.position
   const employer = data.employer
   const location = data.location
   const description = data.description
   const startDate = data.startDate
   const endDate = data.endDate
+  const bulletList = data.bullets
+  let bullets = []
+  if(bulletList?.length > 0) {
+    bullets = bulletList.map((bullet) => {
+      return <li key={bullet}>{bullet}</li>
+    })
+  }
   const jobId = "job" + data.id
   const descId = jobId + "desc"
   return (
     <>
-    <div id={jobId} className="employment--job-card" onClick={respond}>
+    <div id={jobId} className="employment--job-card" onClick={clickRespond}>
       <div className="employment--header">
         <h2>{jobTitle} - {employer}, {location}</h2>
         <h2>{startDate} - {endDate}</h2>
       </div>
-      <p id={descId} className="employment--description employment--u-hidden">{description}</p>
+      <div id={descId} className="employment--description"><ReactMarkdown>{description}</ReactMarkdown>
+      {bullets ? <ul>{bullets}</ul>: ""}
+      </div>
     </div>
 
     </>
   )
 }
 
-function respond(e) {
-  console.log('click')
-  console.log('e: ', e.target)
+function clickRespond(e) {
   let element = e.target
-  console.log('element.tagName: ', element.tagName)
-  if(element.tagName === "H2") {
+  const cl = element.classList.contains("employment--header")
+  while(element.tagName != "DIV" && !cl) {
     element = element.parentElement
   }
-  if(element.tagName === "P") {
-    element = element.parentElement
-  }
-  if(element.tagName === "DIV") {
-    if(element.classList.contains("employment--header")) {
-      element = element.parentElement
-    }
-  }
+  element = element.parentElement
   const jobId = element.id
-  console.log('jobId: ', jobId)
-  const descId = jobId + "desc"
-  console.log('descId: ', descId)
-  const description = document.getElementById(descId)
+  // const descId = jobId + "desc"
+  const description = document.getElementById(jobId)
   if(description.classList.contains("employment--u-hidden")) {
     description.classList.remove("employment--u-hidden")
   } else {
