@@ -13,15 +13,19 @@
 }
 
 .employment--header {
-  display: flex;
-  justify-content: space-between;
-  padding: .5rem;
   overflow-y: clip;
+  color: var(--color-light);
+  padding: .5rem;
 }
 
-.employment--header > h2 {
-  color: var(--color-light)
+.employment--job-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
 }
+
 
 .employment--description {
   text-align: left;
@@ -31,7 +35,14 @@
   transition: 
     height 1s ease-in-out;
   height: 0px;
+}
 
+.employment--job-info {
+  text-align: left;
+}
+
+.employment--job-date {
+  text-align: right;
 }
 
 .employment--description > ul {

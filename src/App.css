@@ -13,6 +13,10 @@ a {
   color: inherit;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 body {
   background-color: var(--color-light);
 }
@@ -31,7 +35,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: var(--color-darkest)
+
 }
 
 main {
