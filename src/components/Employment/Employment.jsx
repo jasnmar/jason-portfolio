@@ -10,6 +10,7 @@ function Employment({ data }) {
   const startDate = data.startDate
   const endDate = data.endDate
   const bulletList = data.bullets
+
   let bullets = []
   if(bulletList?.length > 0) {
     bullets = bulletList.map((bullet) => {
@@ -19,43 +20,61 @@ function Employment({ data }) {
         </ReactMarkdown></li>
     })
   }
+  let descriptionArray = []
+  if(Array.isArray(description)) {
+    let i=0
+    console.log('isArray')
+    descriptionArray = description.map((sentence) => {
+      i++
+      return <ReactMarkdown key={i}>{sentence}</ReactMarkdown>
+    })
+  }
+
   const jobId = "job" + data.id
   const descId = jobId + "desc"
   return (
     <>
-    <div id={jobId} className="employment--job-card" onClick={clickRespond}>
-      <div className="employment--header">
-        <h2>{jobTitle} - {employer}, {location}</h2>
-        <h2>{startDate} - {endDate}</h2>
+      <div id={jobId} className="employment--job-card" onClick={clickRespond}>
+        <div className="employment--header">
+          <div className="employment--job-info">
+            <div className="employment--job-title">
+              <h2>
+                {jobTitle} - {employer}, {location}
+              </h2>
+            </div>
+            <h2 className="employment--job-date">
+              {startDate} - {endDate}
+            </h2>
+          </div>
+        </div>
+        <div id={descId} className="employment--description">
+          {descriptionArray.length>0 ? 
+            descriptionArray : 
+            <ReactMarkdown>{description}</ReactMarkdown>}
+          {bullets ? <ul>{bullets}</ul> : ""}
+        </div>
       </div>
-      <div id={descId} className="employment--description">
-        <ReactMarkdown>
-          {description}
-        </ReactMarkdown>
-      {bullets ? <ul>{bullets}</ul>: ""}
-      </div>
-    </div>
-
     </>
   )
 }
 
 function clickRespond(e) {
   let element = e.target
-  const cl = element.classList.contains("employment--header")
-  while(element.tagName != "DIV" && !cl) {
+  while(element.tagName === "H2") {
+    element = element.parentElement
+  }
+  while(element.tagName == "DIV" && !element.classList?.contains("employment--header")) {
     element = element.parentElement
   }
   element = element.parentElement
   const jobId = element.id
   const descId = jobId + "desc"
   const description = document.getElementById(descId)
-  if(description.classList.contains("employment--u-hidden")) {
+  if(description.classList?.contains("employment--u-hidden")) {
     description.classList.remove("employment--u-hidden")
   } else {
     description.classList.add("employment--u-hidden")
   }
-
 }
 
 Employment.propTypes = {

@@ -6,6 +6,7 @@ h1 {
 
 .home--bio {
   display: flex;
+  flex-direction: row;
   padding: 40px;
   gap: 40px;
   width: 80vw;
@@ -19,7 +20,7 @@ h1 {
 }
 
 .home--main-image {
-  width: 25vw;
+  width: 35vw;
   border-radius: var(--border-radius);
   object-fit: cover;
   box-shadow: 1px 1px 5px black;
@@ -48,6 +49,18 @@ h1 {
 
 .home--summary {
   font-size: 1.5rem;
-  padding: 100px;
+  padding: 5rem;
   width: 80vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .home--bio {
+    flex-wrap: wrap;
+  }
+  .home--main-image {
+    width: 60vw;
+  }
+  .home--summary {
+    padding: 1rem;
+  }
 }

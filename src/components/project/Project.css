@@ -1,20 +1,20 @@
 
-.project-main {
+.project--main {
   display: flex;
   padding: 20px;
 }
 
-.project-title {
+.project--title {
   text-align: left;
   margin-left: 1.5rem;
 }
 
-.project-details {
+.project--details {
   padding-left: 30px;
   text-align: left;
 }
 
-.project-main-image {
+.project--main-image {
   max-width: 800px;
   max-height: 600px;
   width: auto;
@@ -22,12 +22,12 @@
   border-radius: 10px;
 }
 
-.project-description {
+.project--description {
   margin-top: 0px;
   font-size: 1.2rem;
 }
 
-.project-link {
+.project--link {
   text-decoration: none;
   font-weight: 700;
   color: inherit;
@@ -36,24 +36,38 @@
   font-size: 1.3rem;
 }
 
-.project-list-header {
+.project--list-header {
   margin-bottom: 0px;
+  font-size: 1.3rem;
+  margin-top: .5rem;
 }
-li {
-  margin-top: 0px;
+
+.project--item-card {
+  margin: .1rem;
+  border: 1px solid var(--color-dark);
+  display: inline;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-pale)
 }
-ul {
+
+.project--list {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 0px;
-  padding-left: 1em;
 }
 @media (max-width: 1200px) {
-  .project-main-image {
+  .project--main-image {
     max-width: 400px;
     max-height: 300px;
   }
 }
-@media (max-width: 760px) {
-  .project-main {
+@media (max-width: 600px) {
+  .project--main {
     flex-direction: column;
+  }
+  .project--details {
+    padding-left: 0;
+    margin-top: 1rem;
   }
 }
