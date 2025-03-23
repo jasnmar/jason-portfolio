@@ -1,6 +1,7 @@
 import "./Employment.css"
 import PropTypes from "prop-types"
 import ReactMarkdown from 'react-markdown'
+import arrowControl from "../../assets/icons/Arrow - Simple.svg"
 
 function Employment({ data }) {
   const jobTitle = data.position
@@ -23,7 +24,6 @@ function Employment({ data }) {
   let descriptionArray = []
   if(Array.isArray(description)) {
     let i=0
-    console.log('isArray')
     descriptionArray = description.map((sentence) => {
       i++
       return <ReactMarkdown key={i}>{sentence}</ReactMarkdown>
@@ -32,10 +32,13 @@ function Employment({ data }) {
 
   const jobId = "job" + data.id
   const descId = jobId + "desc"
+  const arrowId = jobId + "arrow"
+  
   return (
     <>
-      <div id={jobId} className="employment--job-card" onClick={clickRespond}>
+      <div id={jobId} className="employment--job-card" >
         <div className="employment--header">
+          <img id={arrowId} className="employment--arrow" onClick={clickRespond} src={arrowControl}></img>
           <div className="employment--job-info">
             <div className="employment--job-title">
               <h2>
@@ -45,6 +48,7 @@ function Employment({ data }) {
             <h2 className="employment--job-date">
               {startDate} - {endDate}
             </h2>
+            
           </div>
         </div>
         <div id={descId} className="employment--description">
@@ -60,14 +64,13 @@ function Employment({ data }) {
 
 function clickRespond(e) {
   let element = e.target
-  while(element.tagName === "H2") {
-    element = element.parentElement
+  if(element.classList?.contains("employment--arrow-open")) {
+    element.classList.remove("employment--arrow-open")
+  } else {
+    element.classList.add("employment--arrow-open")
   }
-  while(element.tagName == "DIV" && !element.classList?.contains("employment--header")) {
-    element = element.parentElement
-  }
-  element = element.parentElement
-  const jobId = element.id
+  let id = element.id
+  const jobId = id.slice(0, -5)
   const descId = jobId + "desc"
   const description = document.getElementById(descId)
   if(description.classList?.contains("employment--u-hidden")) {

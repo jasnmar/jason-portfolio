@@ -2,7 +2,6 @@
   margin: 0 auto;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  cursor: pointer;
   background: var(--color-dark);
   margin-top: 1rem;
   border-radius: var(--border-radius);
@@ -16,17 +15,29 @@
   overflow-y: clip;
   color: var(--color-light);
   padding: .5rem;
+  display: flex;
 }
 
 .employment--job-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
-
+  width: 95%;
+  margin-left: 1rem;
+  
 }
 
+.employment--arrow {
+  width: 30px;
+  fill: white;
+  stroke: white;
+  transition: transform .5s ease-in-out;
+  cursor: pointer;
+}
 
+.employment--arrow-open {
+  transform: rotate(90deg);
+}
 .employment--description {
   text-align: left;
   background: var(--color-light);
