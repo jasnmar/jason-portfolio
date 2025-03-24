@@ -11,15 +11,23 @@
 
 .nav--items {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   font-weight: 700;
   font-size: 1.2rem;
   margin-right: 30px;
 }
 
+
+
 .nav--item {
   font-family: inherit;
   text-decoration: none;
+  overflow-y: clip;
+}
+
+.nav--item:hover {
+  
+
 }
 
 .nav--profile {

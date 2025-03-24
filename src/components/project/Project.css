@@ -1,4 +1,8 @@
 
+/* .project--card {
+  border: 1px red solid;
+} */
+
 .project--main {
   display: flex;
   padding: 20px;
@@ -16,15 +20,35 @@
 
 .project--main-image {
   max-width: 800px;
-  max-height: 600px;
   width: auto;
   height: auto;
   border-radius: 10px;
 }
 
+.project--image {
+  max-width: 100%;
+}
+
+.project--image-container {
+  --grid-min-col-size: 150px;
+  max-width: 600px;
+  width: auto;
+  border-radius: 10px;
+  display: grid;
+  /*minmax uses the smaller of 150px or 100% --- or 1fr for the column size*/
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(var(--grid-min-col-size), 100%), 1fr));
+  gap: 1rem;
+}
+
 .project--description {
   margin-top: 0px;
   font-size: 1.2rem;
+}
+
+.project--links {
+  display: flex;
+  gap: 2rem;
 }
 
 .project--link {
@@ -57,17 +81,21 @@
   margin-top: 0px;
 }
 
+.project--image {
+  border-radius: var(--border-radius);
+}
+
 
 @media (max-width: 1200px) {
-  .project--main-image {
+  .project--main-image, .project--image-container {
     max-width: 400px;
-    max-height: 300px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .project--main {
     flex-direction: column;
   }
+
   .project--details {
     padding-left: 0;
     margin-top: 1rem;
