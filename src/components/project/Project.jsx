@@ -1,10 +1,18 @@
 import "./Project.css";
 import PropTypes from "prop-types"
 import { v4 as uuidv4 } from 'uuid'
+import { useState } from "react";
+import ImageModal from "../ImageModal/ImageModal";
 
 
 
 function Project({ data }) {
+  const [showModal, setShowModal] = useState(false);
+  const [modalImage, setModalImage] = useState("")
+  const [modalAltText, setModalAltText] = useState("")
+  
+
+  //Goals
   const projectGoals = data.goals;
   let goalList = "";
   if (projectGoals?.length > 0) {
@@ -13,14 +21,30 @@ function Project({ data }) {
     })
   }
 
+  //Images
   const imageArray = data.images
   let imageList = []
   if(imageArray?.length > 0) {
     imageList = imageArray.map((imageObj) => {
-      return <img key={uuidv4()} className="project--image" alt={data.name + " screenshots"} src={imageObj.image}></img>
+      return (
+        <img 
+          key={uuidv4()} 
+          className="project--image" 
+          onClick={() => clickResponder(imageObj.image, data.name + " screenshots")} 
+          alt={data.name + " screenshots"}
+          src={imageObj.image}
+        />
+      )
     })
   } 
   
+  function clickResponder(imageSrc, altText) {
+    setModalImage(imageSrc)
+    setModalAltText(altText)
+    setShowModal(true)
+  }
+
+  // setShowModal(true)
   return (
     <>
       <section className="project--card">
@@ -31,8 +55,6 @@ function Project({ data }) {
               {imageList}
             </div> : 
             <img className="project--main-image" alt={data.name + "screenshots"} src={data.image}></img>}
-            
-          
           <div className="project--details">
             <p className="project--description">{data.description}</p>
             <div className="project--links">
@@ -49,6 +71,14 @@ function Project({ data }) {
           </div>
         </div>
       </section>
+      <ImageModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        imageUrl={modalImage}
+        altText={modalAltText}
+      >
+        {/* You can add more content here if needed */}
+      </ImageModal>
     </>
   );
 }
