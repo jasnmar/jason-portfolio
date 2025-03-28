@@ -6,13 +6,17 @@ import {
   Quizzical1,
   Quizzical2,
   Tenzies1,
-  Tenzies2
+  Tenzies2,
+  Guides1,
+  Guides2,
+  Guides3 
 } from "./assets/images"
 
 export const projectInfo = [
   {id: 1, name: "VanLife", description:"VanLife was created as part of the Scrimba.com Front End Developer Career Path. The concept is something of a VRBO, but for Vans, rather than properties. There's a 'shopper' experience as well as a 'renter' experience. The primary goal was created was learning about React Router, but it also reinforced a number of different basic React concepts.", source: "https://github.com/jasnmar/scrimba-ar-vanLife", image: "https://jasonsstorage.s3.amazonaws.com/vanLife.png", deploy: "https://jason-scrimba-vanlife.netlify.app/", goals: ["Browser Router", "Routes", "Links", "Route Params", "Nested Routes", "Layout Routes", "Outlets", "Outlet Context", "Search / Query Params", "Use Location (and state)", "Router Provider", "Loader", "ErrorElement", "Protected Routes", "UseLoaderData, UseActionData", "UseNavigation"], images: [{image: vanLife1, link: "https://jason-scrimba-vanlife.netlify.app/about"}, {image: vanLife2, link: "https://jason-scrimba-vanlife.netlify.app/vans"}, {image: vanLife3, link: "https://jason-scrimba-vanlife.netlify.app/host/vans"}, {image: vanLife4, link: "https://jason-scrimba-vanlife.netlify.app/host/vans/1"}] },
   {id: 2, name: "Quizzical", description:"Quizzical was done at the end of the React Basics course as part of the Scrimba.com Front End Developer Carrer Path. I used question components to build the quiz itself, all of the quiz data comes from the opentrivia DB.", source: "https://github.com/jasnmar/scrimba-rb-quizzical", image: "https://jasonsstorage.s3.amazonaws.com/quizzical.png", deploy: "https://quizzical-squirel.netlify.app/", images: [{image: Quizzical1}, {image: Quizzical2}] ,goals: ["React", "React Components", "Managing State", "Fetching Data"]},
-  {id: 3, name: "Tensies", description: "A simple number matching game with dice that tracks the lowest score.", source: "https://github.com/jasnmar/scrimba-rb-tensies", image: "https://jasonsstorage.s3.us-east-1.amazonaws.com/Tensies.png", deploy: "https://glistening-semifreddo-a079a1.netlify.app/", images: [{image: Tenzies1}, {image: Tenzies2}], goals:["Component Reuse (Die)", "Arrays of Components", "Managing Component State", "Managing State"]}
+  {id: 3, name: "Tensies", description: "A simple number matching game with dice that tracks the lowest score. It uses local storage to keep track of the lowest score achieved. Each of the die are React Components.", source: "https://github.com/jasnmar/scrimba-rb-tensies", image: "https://jasonsstorage.s3.us-east-1.amazonaws.com/Tensies.png", deploy: "https://glistening-semifreddo-a079a1.netlify.app/", images: [{image: Tenzies1}, {image: Tenzies2}], goals:["Component Reuse (Die)", "Arrays of Components", "Managing Component State", "Managing State"]},
+  {id: 4, name: "Logbook", description: "Created to assist the guides at Bronco Off-Roadeo. To better understand how much experience we have as guides we are required to keep logbooks of the time we spend instructing, off-roading, training etc. Also, if we want to get paid, we are required to fill out a time sheet and submit an invoice. These 3 tasks had been completely separate from one another. This litte app combines those three tasks, so as long as you fill out your logbook your invoice and timesheet are generated for you. It is intended as a mobile first experience, so that guides can quickly (30 seconds) log their work for the day when they get back to basecamp from their phones. I wrote this before I had taken any formal web dev courses, so it's an interesting mixture of things.", images: [{image: Guides1}, {image: Guides2}, {image: Guides3}],goals: ["Node", "Bootstrap", "Handlebars", "Express", "REST APIs"]}
 ]
 
 export const jobInfo = [
