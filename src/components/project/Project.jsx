@@ -58,13 +58,13 @@ function Project({ data }) {
           <div className="project--details">
             <p className="project--description">{data.description}</p>
             <div className="project--links">
-              <a className="project--link" target="_blank" href={data.source}>
+              {data.source ? <a className="project--link" target="_blank" href={data.source}>
                 Source Code
-              </a>
+              </a> : <p className="project--link">Not Available</p>}
               <br></br>
               {data.deploy ? <a className="project--link" target="_blank" href={data.deploy}>
                 Deployment
-              </a> : <p>Not Deployed</p>}
+              </a> : <p className="project--link">Not Deployed</p>}
             </div>
             {goalList ? <p className="project--list-header">Learning Goals</p> : ""}
             {goalList ? <ul className="project--list">{goalList}</ul>: ""}

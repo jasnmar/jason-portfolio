@@ -4,8 +4,11 @@ import "./ImageModal.css"
 import PropTypes from "prop-types"; // Import PropTypes
 
 function ImageModal({ isOpen, onClose, imageUrl, altText, children }) {
+
+  //Gets run when the status of isOpen changes
   useEffect(() => {
     if (isOpen) {
+      //If true, set the overflow to hidden
       document.body.style.overflow = "hidden"
     } else {
       document.body.style.overflow = "unset"
