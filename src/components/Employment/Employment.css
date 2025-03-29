@@ -59,12 +59,19 @@
 .employment--description > ul {
   margin: 1rem;
 }
-.employment--description > ul > li {
-  line-height: 1.5rem;
-}
 
 .employment--description > p {
   padding: .5rem .5rem 0rem .5rem;
+}
+
+.employment--bullet {
+  line-height: 1.5rem;
+  margin-left: 1rem;
+  list-style-image: url('../../assets/images/circle_green_checkmark.svg');
+}
+
+.employment--bullet::marker {
+  font-size: 2rem;
 }
 
 .employment--u-hidden {

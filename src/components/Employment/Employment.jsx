@@ -15,7 +15,7 @@ function Employment({ data }) {
   let bullets = []
   if(bulletList?.length > 0) {
     bullets = bulletList.map((bullet) => {
-      return <li key={bullet}>
+      return <li className="employment--bullet" key={bullet}>
         <ReactMarkdown>
           {bullet}
         </ReactMarkdown></li>

@@ -17,5 +17,5 @@ export {default as Guides2} from './images/projectImages/Guides2.webp'
 export {default as Guides3} from './images/projectImages/Guides3.webp'
 
 
-
+export {default as circleGreenCheck} from './images/circle_green_checkmark.svg'
 
