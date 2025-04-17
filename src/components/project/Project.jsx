@@ -44,7 +44,6 @@ function Project({ data }) {
     setShowModal(true)
   }
 
-  // setShowModal(true)
   return (
     <>
       <section className="project--card">
