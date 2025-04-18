@@ -9,6 +9,7 @@ import Layout from './components/Layout/Layout'
 import About from './Pages/About/About'
 import Home from './Pages/Home/Home'
 import Contact from './Pages/Contact/Contact'
+import Information from './Pages/Information/Information'
 
 
 const router = createBrowserRouter(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="projects" element={<Projects />} />
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
+      <Route path="information" element={<Information />} />
     </Route>
   ))
 
