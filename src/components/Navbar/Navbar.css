@@ -7,6 +7,7 @@
   position: sticky;
   top: 0;
   background: var(--color-pale);
+  z-index: 100;
 }
 
 .nav--items {
@@ -17,17 +18,10 @@
   margin-right: 30px;
 }
 
-
-
 .nav--item {
   font-family: inherit;
   text-decoration: none;
   overflow-y: clip;
-}
-
-.nav--item:hover {
-  
-
 }
 
 .nav--profile {
