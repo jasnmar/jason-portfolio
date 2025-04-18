@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { v4 as uuidv4 } from 'uuid'
 import { useState } from "react";
 import ImageModal from "../ImageModal/ImageModal";
+import ImageItem from "../ImageItem/ImageItem";
 
 
 
@@ -23,20 +24,24 @@ function Project({ data }) {
 
   //Images
   const imageArray = data.images
-  let imageList = []
-  if(imageArray?.length > 0) {
-    imageList = imageArray.map((imageObj) => {
+
+  let newImageList = []
+  if(imageArray?.length > 0) {  
+    newImageList = imageArray.map((imageObj) => {
       return (
-        <img 
-          key={uuidv4()} 
-          className="project--image" 
-          onClick={() => clickResponder(imageObj.image, data.name + " screenshots")} 
-          alt={data.name + " screenshots"}
-          src={imageObj.image}
-        />
+        <>
+          <ImageItem
+            key={uuidv4()}
+            src={imageObj.image}
+            alt={data.name + " screenshots"}
+            className="project--image"
+            clickAction={() => clickResponder(imageObj.image, data.name + " screenshots")}
+          />
+
+        </>
       )
     })
-  } 
+  }
   
   function clickResponder(imageSrc, altText) {
     setModalImage(imageSrc)
@@ -49,9 +54,9 @@ function Project({ data }) {
       <section className="project--card">
         <h2 className="project--title">{data.name}</h2>
         <div className="project--main">
-          {imageList.length > 0 ? 
+            {newImageList.length > 0 ? 
             <div className="project--image-container">
-              {imageList}
+              {newImageList}
             </div> : 
             <img className="project--main-image" alt={data.name + "screenshots"} src={data.image}></img>}
           <div className="project--details">
