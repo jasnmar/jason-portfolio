@@ -1,7 +1,7 @@
 import "./ImageItem.css"
 import PropTypes from "prop-types"
 
-function ImageItem({ src , alt, clickAction}) {
+function ImageItem({ src , alt, itemId, clickAction}) {
 
   //Create an image element so we can get some data from it
   const img = document.createElement("img")
@@ -25,12 +25,10 @@ function ImageItem({ src , alt, clickAction}) {
     imageClass = "imageitem--height"
   }
   return (
-    <>
-      <div className="imageitem--parent">
+      <div key={itemId} data-item-id={itemId} className="imageitem--parent">
         <div className="imageitem--container" style={divStyle}></div>
         <img src={src} alt={alt} className={imageClass} onClick={clickAction} />
       </div>
-    </>
   )
 }
 
@@ -38,7 +36,8 @@ ImageItem.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
   className: PropTypes.string,
-  clickAction: PropTypes.func
+  clickAction: PropTypes.func,
+  itemId: PropTypes.string
 }
 
 export default ImageItem
