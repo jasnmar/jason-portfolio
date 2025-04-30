@@ -17,7 +17,10 @@ import {
   table1,
   table2,
   table3,
-  table4 
+  table4,
+  memory1,
+  memory2,
+  memory3 
 } from "./assets/images"
 
 export const projectInfo = [
@@ -26,7 +29,8 @@ export const projectInfo = [
   {id: 3, name: "Tensies", description: "A simple number matching game with dice that tracks the lowest score. It uses local storage to keep track of the lowest score achieved. Each of the die are React Components.", source: "https://github.com/jasnmar/scrimba-rb-tensies", image: "https://jasonsstorage.s3.us-east-1.amazonaws.com/Tensies.png", deploy: "https://glistening-semifreddo-a079a1.netlify.app/", images: [{image: Tenzies1}, {image: Tenzies2}], goals:["Component Reuse (Die)", "Arrays of Components", "Managing Component State", "Managing State"]},
   {id: 4, name: "Logbook", description: "Created to assist the guides at Bronco Off-Roadeo. To better understand how much experience we have as guides we are required to keep logbooks of the time we spend instructing, off-roading, training etc. Also, if we want to get paid, we are required to fill out a time sheet and submit an invoice. These 3 tasks had been completely separate from one another. This litte app combines those three tasks, so as long as you fill out your logbook your invoice and timesheet are generated for you. It is intended as a mobile first experience, so that guides can quickly (30 seconds) log their work for the day when they get back to basecamp from their phones. I wrote this before I had taken any formal web dev courses, so it's an interesting mixture of things.", images: [{image: Guides1}, {image: Guides2}, {image: Guides3}],goals: ["Node", "Bootstrap", "Handlebars", "Express", "REST APIs"]},
   {id: 5, name: "Off-Roadeo Guides", description: "Assists past Bronco Off-roadeo guests by providing them with a way to refresh themselves after their day at Bronco Off-Roadeo. We commonly get questions about whether or not the information we go through during the day is available somewhere other than what we talke about during the day itself. This is a solution to that.", images: [{image: ORGuides1}, {image: ORGuides2}, {image: ORGuides3}, {image: ORGuides4}],goals: ["React", "Typescript", "React Router"], source: "https://github.com/jasnmar/guides-home", deploy:"https://www.offroadeoguides.com"},
-  {id: 6, name: "Live Edge Wood and Epoxy Table", description:"From start to finish this project took roughtly 3 years. It took a little over 2 years for the wood, that when I first encountered it was in the form of a standing tree, to dry enough to use in a project. Then there was a few months working in the basement pouring a layer of epoxy, then waiting 24 hours for it to dry. Finally finishing took probably at least a few weeks starting with 40 grit sandpaper and working all the way up to 2000 grit.", images:[{image: table1}, {image: table2}, {image: table3}, {image: table4}]}
+  {id: 6, name: "Memory Matching Game", description:"This is a classic memory game, but presented in a mobile compatible web interface. While it was initially done as part of a tutorial, it has been customized to meet the needs of my 2 year old Grandauter rather than be a general purpose game.", images:[{image: memory1}, {image: memory2}, {image: memory3}], goals: ["React", "Accessibility", "Mobile First"], source: "https://github.com/jasnmar/memory-game", deploy: "https://memory-game-nhp.netlify.app/" },
+  {id: 7, name: "Live Edge Wood and Epoxy Table", description:"Yes, a real world object, not just something on the internet. From start to finish this project took roughtly 3 years. It took a little over 2 years for the wood, that when I first encountered it was in the form of a standing tree, to dry enough to use in a project. Then there was a few months working in the basement pouring a layer of epoxy, then waiting 24 hours for it to dry. Finally finishing took probably at least a few weeks starting with 40 grit sandpaper and working all the way up to 2000 grit.", images:[{image: table1}, {image: table2}, {image: table3}, {image: table4}]}
 ]
 
 export const jobInfo = [

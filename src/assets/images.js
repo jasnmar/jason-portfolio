@@ -26,6 +26,11 @@ export {default as table2} from './images/projectImages/table2.webp'
 export {default as table3} from './images/projectImages/table3.webp'
 export {default as table4} from './images/projectImages/table4.webp'
 
+export {default as memory1} from './images/projectImages/memory1.webp'
+export {default as memory2} from './images/projectImages/memory2.webp'
+export {default as memory3} from './images/projectImages/memory3.webp'
+
+
 
 export {default as circleGreenCheck} from './images/circle_green_checkmark.svg'
 
