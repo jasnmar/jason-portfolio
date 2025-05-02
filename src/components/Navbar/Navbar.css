@@ -25,10 +25,10 @@
 }
 
 .nav--profile {
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3,75rem;
   border-radius: 50%;
-  margin: 10px;
+  margin: .625rem;
 }
 
 .activeLink {
