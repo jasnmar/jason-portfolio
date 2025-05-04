@@ -2,6 +2,8 @@ import "./Employment.css"
 import PropTypes from "prop-types"
 import ReactMarkdown from 'react-markdown'
 import arrowControl from "../../assets/icons/Arrow - Simple.svg"
+import { v4 as uuidv4 } from 'uuid'
+
 
 function Employment({ data }) {
   const jobTitle = data.position
@@ -12,21 +14,25 @@ function Employment({ data }) {
   const endDate = data.endDate
   const bulletList = data.bullets
 
+  //Bullets are optional in the data, but 
+  //represent li items on the card itself
   let bullets = []
   if(bulletList?.length > 0) {
     bullets = bulletList.map((bullet) => {
-      return <li className="employment--bullet" key={bullet}>
+      return <li className="employment--bullet" key={uuidv4()}>
         <ReactMarkdown>
           {bullet}
         </ReactMarkdown></li>
     })
   }
+
+  //Each item in the description is basically its 
+  //own paragraph, so they need to be processed
+  //as their own markdown object
   let descriptionArray = []
   if(Array.isArray(description)) {
-    let i=0
     descriptionArray = description.map((sentence) => {
-      i++
-      return <ReactMarkdown key={i}>{sentence}</ReactMarkdown>
+      return <ReactMarkdown key={uuidv4()}>{sentence}</ReactMarkdown>
     })
   }
 

@@ -29,16 +29,14 @@ function Project({ data }) {
   if(imageArray?.length > 0) {  
     newImageList = imageArray.map((imageObj) => {
       return (
-        <>
           <ImageItem
             key={uuidv4()}
+            itemId={uuidv4()}
             src={imageObj.image}
             alt={data.name + " screenshots"}
-            className="project--image"
             clickAction={() => clickResponder(imageObj.image, data.name + " screenshots")}
           />
 
-        </>
       )
     })
   }
