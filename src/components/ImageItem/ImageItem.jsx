@@ -10,7 +10,7 @@ function ImageItem({ src , alt, itemId, clickAction}) {
 
   const imageWidth = imageDimensions.width
   const imageHeight = imageDimensions.height
-  console.log('imageDimensions: ', imageDimensions)
+  // console.log('imageDimensions: ', imageDimensions)
 
   useEffect(() => {
     // Flag to prevent state update on unmounted component
@@ -20,13 +20,13 @@ function ImageItem({ src , alt, itemId, clickAction}) {
       img.src = imageSource
       try {
         await img.decode()
-        console.log(
-          "Image decoded: ",
-          imageSource,
-          "Dimensions:",
-          img.naturalWidth,
-          img.naturalHeight
-        )
+        // console.log(
+        //   "Image decoded: ",
+        //   imageSource,
+        //   "Dimensions:",
+        //   img.naturalWidth,
+        //   img.naturalHeight
+        // )
         if (isMounted) {
           setImageDimensions({
             width: img.naturalWidth,

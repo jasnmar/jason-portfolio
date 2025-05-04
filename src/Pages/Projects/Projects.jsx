@@ -13,7 +13,6 @@ function Projects() {
     <>
       <h1 className="page-title">Projects</h1>
       <hr></hr>
-      <p className="projects-text"></p>
       {projectList}
     </>
   )
