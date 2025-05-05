@@ -4,18 +4,26 @@ import "./Certificate.css"
 
 
 function Certificate({ cert }) {
-  console.log(cert)
-
+  const header = (
+    cert.certificateLink ? 
+    <a href={cert.certificateLink} target="_blank" rel="noreferrer">
+      <div className="certificate--header">
+        <h2>{cert.title}</h2>
+        <h2>{cert.source && cert.source}</h2>
+      </div>
+    </a> :
+    <div className="certificate--header">
+      <h2>{cert.title}</h2>
+      <h2>{cert.source && cert.source}</h2>
+    </div>
+  )
+  
 
   
   return (
     <>
       <div className="certificate--card">
-        <a href={cert.certificateLink} target="_blank" rel="noreferrer">
-        <div className="certificate--header">
-          <h2>{cert.title}</h2>
-          <h2>{cert.source && cert.source}</h2>
-        </div></a>
+        {header}
         <p className="certificate--description">{cert.description}</p>
         <div className="certificate--footer">
           {cert.level && <p className="certificate--level">{cert.level}</p>}
