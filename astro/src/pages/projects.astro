@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from "../layouts/layout.astro"
+import Project from "../components/Project.astro"
+const projects = await getCollection('projects')
+console.log(projects)
+
+---
+
+<Layout>
+  {projects.map(project => (
+    <Project 
+        name={project.data.name} 
+        images={project.data.images} 
+        description={project.data.description}
+        source={project.data.source}
+        deploy={project.data.deploy}
+        goals={project.data.goals}
+    />
+  ))}
+</Layout>
+
+<style>
+
+</style>
