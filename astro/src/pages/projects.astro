@@ -3,11 +3,11 @@ import { getCollection } from 'astro:content'
 import Layout from "../layouts/layout.astro"
 import Project from "../components/Project.astro"
 const projects = await getCollection('projects')
-console.log(projects)
 
 ---
 
 <Layout>
+ 
   {projects.map(project => (
     <Project 
         name={project.data.name} 

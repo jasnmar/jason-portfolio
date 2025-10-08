@@ -1,0 +1,125 @@
+---
+import { fade } from "astro:transitions"
+
+// Define the component's props.
+interface Props {
+  title: string
+  id: string
+}
+
+const { title, id } = Astro.props
+---
+
+
+<div
+  id={id}
+  class="modal-overlay"
+  transition:animate={fade({ duration: "300ms" })}
+>
+  
+  <div
+    class="modal-container"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <header class="modal-header">
+      <h3 id="modal-title">{title}</h3>
+      <button class="modal-close-btn" aria-label="Close modal">
+        &times;
+      </button>
+    </header>
+    <div class="modal-body">
+      
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* The modal is hidden by default. */
+    place-items: center;
+    z-index: 1000;
+  }
+
+  .modal-container {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .modal-body{
+    max-height: 90%;
+    overflow: hidden;
+  }
+
+  .modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  /* Style for when the modal is active. */
+  .modal-overlay.active {
+    display: grid; 
+  }
+</style>
+
+<script>
+  // This client-side script is added only once per page, even if the component is used multiple times.
+  function setupModal(modalId) {
+    const modalOverlay = document.getElementById(modalId)
+    if (!modalOverlay) return
+
+    const closeButton = modalOverlay.querySelector(".modal-close-btn")
+
+    const hideModal = () => {
+      modalOverlay.classList.remove("active")
+      document.body.style.overflow = ""
+    }
+
+    // Close the modal from the "X" button.
+    closeButton?.addEventListener("click", hideModal)
+
+    // Close modal when clicking outside of it.
+    modalOverlay.addEventListener("click", (event) => {
+      if (event.target === modalOverlay) {
+        hideModal()
+      }
+    })
+
+    // Close modal with the Escape key.
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modalOverlay.classList.contains("active")) {
+        hideModal()
+      }
+    })
+  }
+
+  // Call the setup function for each modal on the page.
+  document.addEventListener("DOMContentLoaded", () => {
+    const allModals = document.querySelectorAll(".modal-overlay")
+    allModals.forEach((modal) => {
+      if (modal.id) {
+        setupModal(modal.id)
+      }
+    })
+  })
+</script>
