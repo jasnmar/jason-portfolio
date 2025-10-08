@@ -1,0 +1,82 @@
+---
+interface Props {
+  data: {
+    employer: string
+    employerLink?: string
+    position: string
+    location: string
+    description: string[]
+    bullets: string[]
+    startDate: string
+    endDate: string
+  }
+}
+const data = Astro.props.data
+---
+
+<div class="jobcard--container">
+  <div class="jobcard--header">
+    <p>{data.employer} - {data.position}</p>
+    <p>{data.location}</p>
+  </div>
+  <div class="jobcard--body">
+    <div class="jobcard--description">
+      {
+        data.description &&
+          data.description.map((sentence) => {
+            return <p>{sentence}</p>
+          })
+      }
+    </div>
+    <div class="jobcard--bullets">
+      {
+        data.bullets ? (
+          <ul>
+            {data.bullets.map((bullet) => {
+              return <li>{bullet}</li>
+            })}
+          </ul>
+        ) : (
+          ""
+        )
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .jobcard--container {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1rem;
+
+
+  .jobcard--header {
+    color:var(--color-light);
+    display: flex;
+    font-size: 1.2rem;
+    font-weight:700;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--color-dark);
+    padding: .5em;
+    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+  }
+  .jobcard--body {
+    display: flex;
+    flex-direction: column;
+    line-height:1.2em;
+    gap: 1rem;
+    border-radius:0px 0px var(--border-radius) var(--border-radius);
+    border:2px solid var(--color-dark);
+    padding:.5rem;
+    ul{
+      padding-inline:1em;
+    }
+    p{
+      margin-block:.5em;
+    }
+  }
+
+}
+</style>

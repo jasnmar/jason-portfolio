@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../layouts/layout.astro"
+import Certificate from "../components/Certificate.astro"
+import Job from "../components/Job.astro"
+const certificates = await getCollection("certificates")
+const jobs = await getCollection("jobs")
+---
+
+<Layout>
+  <h1>About</h1>
+  <section>
+    <h2>Work History</h2>
+    <div class="jobs--container">
+      {
+        jobs.map((job) => {
+          return <Job data={job.data as any} />
+        })
+      }
+    </div>
+  </section>
+  <section>
+
+  <h2>Certificates</h2>
+  <div class="certificates--container">
+    {
+      certificates.map((certificate) => {
+        return <Certificate data={certificate.data as any} />
+      })
+    }
+  </div>
+</section>
+  
+</Layout>
+
+<style>
+  h1, h2 {
+    margin-inline:1rem;
+  }
+  section {
+    margin-block: 1rem;
+  }
+  .certificates--container,
+  .jobs--container {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+</style>
