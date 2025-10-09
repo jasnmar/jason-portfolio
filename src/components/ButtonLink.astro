@@ -1,0 +1,99 @@
+---
+interface Props {
+  href: string
+  text: string
+  variant?: "primary" | "secondary"
+  isDownload?: boolean
+}
+const { href, text, variant = "primary", isDownload = false } = Astro.props
+---
+
+<div class="border">
+  <div class:list={[variant, "button"]} role="button">
+    <a download={isDownload} href={href}>
+      {text}
+    </a>
+  </div>
+</div>
+
+<style>
+  @property --angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @property --border-width {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 2px;
+  }
+
+
+  .border {
+    --border-width: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: var(--border-width);
+    padding-block: var(--border-width);
+
+    background-color:var(--clr-accent);
+    width: 100%;
+    border-radius: calc(var(--border-radius) + calc(var(--border-width) / 2));
+    &:hover, &:focus {
+      background-image: conic-gradient(
+      from var(--angle),
+      var(--clr-darkest) 8%,
+      var(--clr-dark) 25%,
+      var(--clr-accent) 50%,
+      var(--clr-light),
+      var(--clr-lightest),
+      var(--clr-darkest)
+    );
+      animation: 6s spin linear infinite;
+    }
+  }
+
+  .button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5em 1em;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height:100%;
+  }
+
+  @keyframes spin {
+    from {
+      --angle: 0deg;
+    }
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 1.5em;
+    width: 100%;
+    display: inline-block;
+    color: inherit;
+  }
+
+  .primary {
+    color: var(--clr-lightest);
+    background-color: var(--clr-darkest);
+  }
+
+  .secondary {
+    color: var(--clr-darkest);
+    background-color: var(--clr-lightest);
+  }
+
+</style>

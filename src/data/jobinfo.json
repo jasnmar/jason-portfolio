@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "employer": "Bronco Off-Roadeo",
+    "employerLink": "www.broncooffroadeo.com",
+    "position": "Instructor",
+    "location": "Gilford NH",
+    "description": [
+      "Act as the key point of contact, guiding Bronco Off-Roadeo guests through their immersive off-road learning adventure. Build trust with guests so that they are comfortable driving in very unusual situations. Provide guests with off-road driving instruction and assistance including real time feedback and verifying they are proceeding safely. Ensure guests are having fun learning the capabilities of their vehicles and introducing them to techniques particular to off-roading.",
+      "Work with other Instructors to prepare the vehicles for the day, as well as plan out the routes we will be using that day. React to what happens out on trail, while maintaining the overall schedule of the day."
+    ],
+    "startDate": "2023",
+    "endDate": "Present"
+  },
+  {
+    "id": 2,
+    "employer": "Meltwater",
+    "position": "Agile Coach",
+    "location": "Manchester NH",
+    "description": ["Led daily ceremonies of up to five concurrent teams. Coordinated company-wide initiatives, such as the Front-End Guild, which were both regular meetings and strategic off-site events. Facilitated UX Design Review meetings to improve efficiency. Created and implemented the 'Meltwater Maturity Matrix,' enabling teams to understand and optimize their Agile practices. "],
+    "bullets": [
+      "Led Team launch and re-launch events.",
+      "Mentored junior coaches.",
+      "Built statistical analysis applications using Jira data."
+    ],
+    "startDate": "2018",
+    "endDate": "2023"
+  },
+  {
+    "id": 3,
+    "employer": "Autodesk",
+    "position": "Agile Coach",
+    "location": "Manchester NH",
+    "startDate": "2014",
+    "endDate": "2018",
+    "description": ["Executed implementation and advancement of a unified agile framework across our division, encompassing up to 35 teams distributed across the US, Europe, and Asia. Involved in establishing standardized scrum ceremonies, optimal sprint durations, effective utilization of agile tools, clear definitions of completion, and collaborative team accords. Collaborated with individual teams to detect and rectify counterproductive practices, offering tailored recommendations for enhancements that align with consistent reinforcement of agile principles and values. "],
+    "bullets": [
+      "Guided facilitation of Agile Maturity Team Assessments, empowering teams to cultivate enduring positive behaviors.",
+      "Crafted and provided diverse training modules, spanning Team, Product Owner, Scrum Master, and Agile Refresher courses.",
+      "Orchestrated Epic Definition workshops involving teams and stakeholders, fostering comprehension of envisioned outcomes.",
+      "Instituted dedicated communities of practice for Product Owners and Scrum Masters, fostering exchange of insights and methodologies to collaboratively troubleshoot challenges."
+    ]
+  },
+  {
+    "id": 4,
+    "employer": "Autodesk",
+    "position": "User Experience Manager / Agile Coach",
+    "startDate": "2010",
+    "endDate": "20214",
+    "location": "Manchester NH",
+    "description": ["Led an international team of Product Owners and UX Designers, driving the development of core Architecture/Engineering/Construction products. Fostered strong collaboration with Product Management to define team objectives and address critical software challenges. Partnered with functional leaders to assemble skilled teams, ensuring efficient product release cycles. Established clear requirement communication protocols in collaboration with Product Management, optimizing the development process."],
+    "bullets": [
+      "Acted as Agile Coach for many teams, guiding their agile processes.",
+      "Pioneered inception of a Scrum Master's Practice group to foster discussions on agile matters and team dynamics.",
+      "Offered consultation to Teams and Managers, driving enhancements to team processes and workflows for optimal outcomes.",
+      "Examined Research findings, Workflows, and Interfaces put forth by teams on a regular cadence, ensuring uniformity throughout the product line and with other internal offerings.",
+      "Scrutinized Research outcomes, Workflows, and Interfaces presented by User Experience Designers throughout the organization, ensuring uniformity across the product spectrum and with other internal offerings."
+    ]
+  },
+  {
+    "id": 5,
+    "employer": "Autodesk",
+    "position": "User Experience Designer",
+    "startDate": "2003",
+    "endDate": "2010",
+    "location": "Manchester NH",
+    "description": ["Acted as the User Experience Designer for all Mechanical, Electrical and Piping functionality for Autodesk's Flagship AEC platform, Revit. Conducted user research, managed the beta program, conducted regular meetings with customers to gather feedback and better understand workflows."]
+  }
+]
