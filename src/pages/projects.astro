@@ -5,7 +5,6 @@ import Project from "../components/Project.astro"
 const projects = await getCollection('projects')
 
 ---
-
 <Layout>
  
   {projects.map(project => (
