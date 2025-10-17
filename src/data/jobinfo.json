@@ -6,8 +6,13 @@
     "position": "Instructor",
     "location": "Gilford NH",
     "description": [
-      "Act as the key point of contact, guiding Bronco Off-Roadeo guests through their immersive off-road learning adventure. Build trust with guests so that they are comfortable driving in very unusual situations. Provide guests with off-road driving instruction and assistance including real time feedback and verifying they are proceeding safely. Ensure guests are having fun learning the capabilities of their vehicles and introducing them to techniques particular to off-roading.",
-      "Work with other Instructors to prepare the vehicles for the day, as well as plan out the routes we will be using that day. React to what happens out on trail, while maintaining the overall schedule of the day."
+      "Act as the primary guide for guests embarking on the immersive Bronco Off-Roadeo learning adventure. Your mission is to build instant trust and confidence, enabling drivers to master their vehicle's capabilities in challenging, unusual terrain."
+    ],
+    "bullets":[
+      "Provide expert, real-time instruction and coaching to ensure guests are learning safely while maximizing their fun.",
+      "Continuously verify safe driving practices and offer constructive, immediate feedback on off-road techniques.",
+      "Partner with the instructor team for daily vehicle preparation and route planning.",
+      "Manage the day's schedule while skillfully adapting the experience to real-time trail conditions and guest needs."
     ],
     "startDate": "2023",
     "endDate": "Present"
@@ -17,11 +22,16 @@
     "employer": "Meltwater",
     "position": "Agile Coach",
     "location": "Manchester NH",
-    "description": ["Led daily ceremonies of up to five concurrent teams. Coordinated company-wide initiatives, such as the Front-End Guild, which were both regular meetings and strategic off-site events. Facilitated UX Design Review meetings to improve efficiency. Created and implemented the 'Meltwater Maturity Matrix,' enabling teams to understand and optimize their Agile practices. "],
+    "description": ["Drove significant improvements in organizational efficiency and Agile maturity across multiple teams. "],
     "bullets": [
-      "Led Team launch and re-launch events.",
-      "Mentored junior coaches.",
-      "Built statistical analysis applications using Jira data."
+      "Directed cross-functional execution by leading daily ceremonies for up to five simultaneous development teams",
+      "Spearheaded company-wide strategic initiatives, including coordinating the Front-End Guild—a critical forum for both regular meetings and strategic off-site planning.",
+      "Accelerated product development by facilitating efficient UX Design Review meetings.",
+      "Developed and deployed the 'Meltwater Maturity Matrix,' a quantifiable tool that enabled development teams to assess, understand, and optimize their specific Agile practices.",
+      "Strengthened organizational coaching capacity by mentoring junior Agile coaches.",
+      "Established data-driven insights for team performance by building statistical analysis applications using Jira data.",
+      "Ensured successful team evolution by leading comprehensive Team Launch and Re-Launch events."
+
     ],
     "startDate": "2018",
     "endDate": "2023"
@@ -48,13 +58,14 @@
     "startDate": "2010",
     "endDate": "20214",
     "location": "Manchester NH",
-    "description": ["Led an international team of Product Owners and UX Designers, driving the development of core Architecture/Engineering/Construction products. Fostered strong collaboration with Product Management to define team objectives and address critical software challenges. Partnered with functional leaders to assemble skilled teams, ensuring efficient product release cycles. Established clear requirement communication protocols in collaboration with Product Management, optimizing the development process."],
+    "description": ["Provided leadership to an international User Experience team and drove Agile maturity across product development groups for key Architecture, Engineering, and Construction (AEC) products."],
     "bullets": [
-      "Acted as Agile Coach for many teams, guiding their agile processes.",
-      "Pioneered inception of a Scrum Master's Practice group to foster discussions on agile matters and team dynamics.",
-      "Offered consultation to Teams and Managers, driving enhancements to team processes and workflows for optimal outcomes.",
-      "Examined Research findings, Workflows, and Interfaces put forth by teams on a regular cadence, ensuring uniformity throughout the product line and with other internal offerings.",
-      "Scrutinized Research outcomes, Workflows, and Interfaces presented by User Experience Designers throughout the organization, ensuring uniformity across the product spectrum and with other internal offerings."
+      "Directly managed and directed an international cohort of UX Designers responsible for the visual and interaction design of premier AEC products.",
+      "Regularly examined and scrutinized research findings, workflows, and interfaces presented by the design teams to enforce uniformity and coherence across the entire product spectrum and internal offerings.",
+      "Acted as an Agile Coach for numerous development teams, providing guidance on process optimization.",
+      "Established a Scrum Master's Practice group to institutionalize knowledge sharing, advance discussions on Agile methodologies, and collaboratively troubleshoot team dynamics issues.",
+      "Partnered closely with Product Management to define team objectives and ensure clear communication protocols for requirements, streamlining the development process.",
+      "Consulted with various teams and managers to drive improvements in processes and workflows, ensuring the best possible outcomes were achieved."
     ]
   },
   {
