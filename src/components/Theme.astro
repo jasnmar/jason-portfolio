@@ -1,0 +1,61 @@
+---
+import sun from "../assets/icons/sun.svg?raw"
+import moon from "../assets/icons/moon-fill.svg?raw"
+---
+
+<div>
+  <label for="theme">
+    <span class="icon-sun">
+      <Fragment set:html={sun} />
+    </span>
+    <span class="icon-moon">
+      <Fragment set:html={moon} />
+    </span>
+  </label>
+  <input type="checkbox" id="theme" />
+</div>
+
+<script>
+  const themeToggle = document.getElementById(
+    "theme"
+  ) as HTMLInputElement | null
+  const storageKey = "theme-preference"
+
+  const applyTheme = (theme: string) => {
+    document.documentElement.setAttribute("data-theme", theme)
+    if (themeToggle) {
+      themeToggle.checked = theme === "dark"
+    }
+  }
+
+  const savedTheme = localStorage.getItem(storageKey)
+  if (savedTheme) {
+    applyTheme(savedTheme)
+  }
+
+  themeToggle?.addEventListener("change", () => {
+    const newTheme = themeToggle.checked ? "dark" : "light"
+    localStorage.setItem(storageKey, newTheme)
+    applyTheme(newTheme)
+  })
+</script>
+
+<style>
+  #theme {
+    display: none;
+  }
+
+  .icon-moon,
+  html[data-theme="dark"] .icon-sun {
+    display: none;
+  }
+
+  .icon-sun,
+  html[data-theme="dark"] .icon-moon {
+    display: inline-block;
+  }
+
+  label {
+    cursor: pointer;
+  }
+</style>

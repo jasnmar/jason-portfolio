@@ -1,7 +1,8 @@
 ---
-const { pathname } = Astro.url;
+const { pathname } = Astro.url
+import Theme from "./Theme.astro"
 
-const jasonImage3x = "/jason3x.png"; // Placeholder, you'll want to import your images
+const jasonImage3x = "/jason3x.png" // Placeholder, you'll want to import your images
 ---
 
 <nav class="nav">
@@ -14,10 +15,7 @@ const jasonImage3x = "/jason3x.png"; // Placeholder, you'll want to import your 
     <!-- </picture> -->
   </a>
   <div class="nav--items">
-    <a
-      href="/"
-      class:list={["nav--item", { activeLink: pathname === "/" }]}
-    >
+    <a href="/" class:list={["nav--item", { activeLink: pathname === "/" }]}>
       Home
     </a>
     <a
@@ -32,39 +30,41 @@ const jasonImage3x = "/jason3x.png"; // Placeholder, you'll want to import your 
     >
       About
     </a>
+    <Theme />
   </div>
 </nav>
 
+
 <style>
   .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background: var(--color-pale);
-  z-index: 100;
-}
-.nav--items {
-  display: flex;
-  gap: 1rem;
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-right: 30px;
-}
-.nav--item {
-  font-family: inherit;
-  text-decoration: none;
-  overflow-y: clip;
-  color: var(--color-dark);
-}
-.nav--profile {
-  width: 3.75rem;
-  height: 3.75rem;
-  border-radius: 50%;
-  margin: 0.625rem;
-}
-.activeLink {
-  text-decoration: underline;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: var(--color-pale);
+    z-index: 100;
+  }
+  .nav--items {
+    display: flex;
+    gap: 1rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-right: 30px;
+  }
+  .nav--item {
+    font-family: inherit;
+    text-decoration: none;
+    overflow-y: clip;
+    color: var(--color-dark);
+  }
+  .nav--profile {
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 50%;
+    margin: 0.625rem;
+  }
+  .activeLink {
+    text-decoration: underline;
+  }
 </style>
