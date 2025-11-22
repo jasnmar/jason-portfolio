@@ -78,15 +78,16 @@ import jasoncity from "../assets/images/jason-city.webp"
     justify-content: center;
   }
 
-  .home--work > p {
-    color: var(--color-light);
-  }
-
   .home--summary {
+    color: var(--color-light);
     font-size: 1.5rem;
     padding: 5rem;
     width: 80vw;
   }
+  html[data-theme="dark"] .home--summary {
+    color: var(--color-darkest);
+  }
+
 
   @media only screen and (max-width: 600px) {
     .home--bio {
