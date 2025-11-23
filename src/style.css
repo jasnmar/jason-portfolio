@@ -91,3 +91,8 @@ body {
 .page-title {
   margin-left: 1rem;
 }
+
+.find {
+  outline:2px solid red;
+}
+
