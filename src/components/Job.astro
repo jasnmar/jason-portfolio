@@ -1,5 +1,5 @@
 ---
-import arrowsimple from "../assets/icons/arrowsimple.svg"
+import arrowhtml from "../assets/icons/arrowsimple.svg?raw"
 
 interface Props {
   data: {
@@ -20,12 +20,9 @@ const data = Astro.props.data
 <div class="jobcard--container">
   <div class="jobcard--header">
     <div class="jobcard--title">
-      <img
-        id={"arrow-" + data.id}
-        class="jobcard--arrow"
-        src={arrowsimple.src}
-        alt="Arrow icon"
-      />
+      <span id={"arrow-" + data.id} class="arrow jobcard--arrow">
+        <Fragment set:html={arrowhtml}/>
+      </span>
       <p>{data.employer} - {data.position}, {data.location}</p>
     </div>
     <p>{data.startDate} - {data.endDate}</p>
@@ -61,7 +58,7 @@ const data = Astro.props.data
     const toggleButtons = document.querySelectorAll(".jobcard--arrow")
     toggleButtons.forEach((button) => {
       button.addEventListener("click", (e) => {
-        const target = e.target as HTMLElement
+        const target = e.currentTarget as HTMLElement
         console.log("e.target: ", target)
         target.classList.toggle("rotate")
         const jobId = target.id.split("-")[1]
@@ -93,6 +90,18 @@ const data = Astro.props.data
     .jobcard--title {
       display: flex;
       flex-direction: row;
+      .arrow {
+        width:1.5rem;
+        aspect-ratio: 1;
+        
+        .str0 {
+          stroke:var(--color-light);
+        }
+        color:red;
+        
+        stroke:red;
+        fill:red;
+      }
     }
 
     .jobcard--arrow {

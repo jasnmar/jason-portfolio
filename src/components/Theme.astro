@@ -22,10 +22,12 @@ import moon from "../assets/icons/moon-fill.svg?raw"
   const storageKey = "theme-preference"
 
   const applyTheme = (theme: string) => {
-    document.documentElement.setAttribute("data-theme", theme)
-    if (themeToggle) {
-      themeToggle.checked = theme === "dark"
-    }
+    document.startViewTransition(() => {
+      document.documentElement.setAttribute("data-theme", theme)
+      if (themeToggle) {
+        themeToggle.checked = theme === "dark"
+      }
+    })
   }
 
   const savedTheme = localStorage.getItem(storageKey)
@@ -44,6 +46,7 @@ import moon from "../assets/icons/moon-fill.svg?raw"
   #theme {
     display: none;
   }
+
 
   .icon-moon,
   html[data-theme="dark"] .icon-sun {
