@@ -1,18 +1,22 @@
 ---
 const { pathname } = Astro.url
 import Theme from "./Theme.astro"
+import jasonWebp1x from "../assets/images/jason1x.webp?url"
+import jasonWebp2x from "../assets/images/jason2x.webp?url"
+import jasonWebp3x from "../assets/images/jason3x.webp?url"
+import jasonImage1x from "../assets/images/jason1x.png?url"
+import jasonImage2x from "../assets/images/jason2x.png?url"
+import jasonImage3x from "../assets/images/jason3x.png?url"
 
-const jasonImage3x = "/jason3x.png" // Placeholder, you'll want to import your images
 ---
 
 <nav class="nav">
   <a href="/">
-    <!-- <picture> -->
-    <!-- You will need to import your images to use the picture element -->
-    <!-- <source type="image/webp" srcSet={`${jasonWebp1x} 120w, ${jasonWebp2x} 180w, ${jasonWebp3x} 360w`}></source> -->
-    <!-- <source type="image/png" srcSet={`${jasonImage1x} 120w, ${jasonImage2x} 180w, ${jasonImage3x} 360w`}></source> -->
-    <!-- <img alt="Jason's Head" class="nav--profile" src={jasonImage3x} /> -->
-    <!-- </picture> -->
+    <picture>
+    <source type="image/webp" srcset={`${jasonWebp1x} 120w, ${jasonWebp2x} 180w, ${jasonWebp3x} 360w`}></source>
+    <source type="image/png" srcset={`${jasonImage1x} 120w, ${jasonImage2x} 180w, ${jasonImage3x} 360w`}></source>
+    <img alt="Jason's Head" class="nav--profile" src={jasonImage3x} />
+    </picture>
   </a>
   <div class="nav--items">
     <a href="/" class:list={["nav--item", { activeLink: pathname === "/" }]}>
