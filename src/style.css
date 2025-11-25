@@ -58,6 +58,15 @@ a:hover {
   text-shadow: 0px 0px 5px rgba(20, 20, 20, 0.2);
 }
 
+::view-transition-new(root) {
+  animation:circle-in 600ms;
+}
+
+@keyframes circle-in {
+  from { clip-path: circle(0% at 90% 5% );}
+  to { clip-path: circle(200% at 90% 5%); }
+}
+
 :root {
   font-family: Inter, Arial, Helvetica, sans-serif;
   --border-radius: 4px;
