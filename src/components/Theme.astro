@@ -21,6 +21,11 @@ import moon from "../assets/icons/moon-fill.svg?raw"
   ) as HTMLInputElement | null
   const storageKey = "theme-preference"
 
+  // Set the toggle to the correct state on page load
+  if (themeToggle) {
+    themeToggle.checked = document.documentElement.getAttribute("data-theme") === "dark"
+  }
+
   const applyTheme = (theme: string) => {
     document.startViewTransition(() => {
       document.documentElement.setAttribute("data-theme", theme)
@@ -28,11 +33,6 @@ import moon from "../assets/icons/moon-fill.svg?raw"
         themeToggle.checked = theme === "dark"
       }
     })
-  }
-
-  const savedTheme = localStorage.getItem(storageKey)
-  if (savedTheme) {
-    applyTheme(savedTheme)
   }
 
   themeToggle?.addEventListener("change", () => {

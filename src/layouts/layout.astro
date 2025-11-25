@@ -25,6 +25,23 @@ import Footer from "../components/Footer.astro"
     />
     <meta name="generator" content={Astro.generator} />
     <title>Jason Martin</title>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme-preference")) {
+          return localStorage.getItem("theme-preference")
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark"
+        }
+        return "light"
+      })()
+
+      if (theme === "light") {
+        document.documentElement.setAttribute("data-theme", "light")
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark")
+      }
+    </script>
   </head>
   <body>
     <Navbar />
