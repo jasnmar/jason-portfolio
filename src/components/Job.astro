@@ -18,10 +18,10 @@ const data = Astro.props.data
 ---
 
 <div class="jobcard--container">
-  <div class="jobcard--header">
+  <div id={"header-" + data.id} class="jobcard--header">
     <div class="jobcard--title">
       <span id={"arrow-" + data.id} class="arrow jobcard--arrow">
-        <Fragment set:html={arrowhtml}/>
+        <Fragment set:html={arrowhtml} />
       </span>
       <p>{data.employer} - {data.position}, {data.location}</p>
     </div>
@@ -56,14 +56,15 @@ const data = Astro.props.data
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const toggleButtons = document.querySelectorAll(".jobcard--arrow")
-    toggleButtons.forEach((button) => {
-      button.addEventListener("click", (e) => {
+    const headers = document.querySelectorAll(".jobcard--header")
+    headers.forEach((header: Element) => {
+      header.addEventListener("click", (e) => {
         const target = e.currentTarget as HTMLElement
-        console.log("e.target: ", target)
-        target.classList.toggle("rotate")
         const jobId = target.id.split("-")[1]
         const descId = "desc-" + jobId
         const description = document.getElementById(descId)
+        const arrow = document.getElementById("arrow-" + jobId)
+        arrow.classList.toggle("rotate")
         description.classList.toggle("collapse")
       })
     })
@@ -91,16 +92,16 @@ const data = Astro.props.data
       display: flex;
       flex-direction: row;
       .arrow {
-        width:1.5rem;
+        width: 1.5rem;
         aspect-ratio: 1;
-        
+
         .str0 {
-          stroke:var(--color-light);
+          stroke: var(--color-light);
         }
-        color:red;
-        
-        stroke:red;
-        fill:red;
+        color: red;
+
+        stroke: red;
+        fill: red;
       }
     }
 
