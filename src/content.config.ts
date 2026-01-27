@@ -42,7 +42,16 @@ const jobs = defineCollection({
     bullets: z.array(z.string()).optional(),
     startDate: z.string(),
     endDate: z.string(),
+    quotes:z.boolean().optional(),
   }),
 })
 
-export const collections = { projects, certificates, jobs }
+const quotes = defineCollection({
+  loader: file("src/data/quotes.json"),
+  schema: z.object({
+    id: z.number(),
+    quote: z.string()
+  }),
+})
+
+export const collections = { projects, certificates, jobs, quotes }
