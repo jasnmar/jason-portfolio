@@ -7,37 +7,43 @@ import jasonWebp3x from "../assets/images/jason3x.webp?url"
 import jasonImage1x from "../assets/images/jason1x.png?url"
 import jasonImage2x from "../assets/images/jason2x.png?url"
 import jasonImage3x from "../assets/images/jason3x.png?url"
-
 ---
 
 <nav class="nav">
-  <a href="/">
+  <div class="left-nav">
     <picture>
-    <source type="image/webp" srcset={`${jasonWebp1x} 120w, ${jasonWebp2x} 180w, ${jasonWebp3x} 360w`}></source>
-    <source type="image/png" srcset={`${jasonImage1x} 120w, ${jasonImage2x} 180w, ${jasonImage3x} 360w`}></source>
-    <img alt="Jason's Head" class="nav--profile" src={jasonImage3x} />
+      <source
+        type="image/webp"
+        srcset={`${jasonWebp1x} 120w, ${jasonWebp2x} 180w, ${jasonWebp3x} 360w`}
+      />
+      <source
+        type="image/png"
+        srcset={`${jasonImage1x} 120w, ${jasonImage2x} 180w, ${jasonImage3x} 360w`}
+      />
+      <img alt="Jason's Head" class="nav--profile" src={jasonImage3x} />
     </picture>
-  </a>
-  <div class="nav--items">
-    <a href="/" class:list={["nav--item", { activeLink: pathname === "/" }]}>
-      Home
-    </a>
-    <a
-      href="/projects"
-      class:list={["nav--item", { activeLink: pathname === "/projects" }]}
-    >
-      Projects
-    </a>
-    <a
-      href="/about"
-      class:list={["nav--item", { activeLink: pathname === "/about" }]}
-    >
-      About
-    </a>
+  </div>
+  <div class="right-nav">
+    <div class="nav--items">
+      <a href="/" class:list={["nav--item", { activeLink: pathname === "/" }]}>
+        Home
+      </a>
+      <a
+        href="/projects"
+        class:list={["nav--item", { activeLink: pathname === "/projects" }]}
+      >
+        Projects
+      </a>
+      <a
+        href="/about"
+        class:list={["nav--item", { activeLink: pathname === "/about" }]}
+      >
+        About
+      </a>
+    </div>
     <Theme />
   </div>
 </nav>
-
 
 <style>
   .nav {
@@ -48,27 +54,71 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
     top: 0;
     background: var(--color-pale);
     z-index: 100;
+    .left-nav {
+      display: flex;
+      align-items: flex-start;
+      margin: 0;
+      margin-left: 1rem;
+      .nav--profile {
+        width: 3.75rem;
+        height: 3.75rem;
+        border-radius: 50%;
+        margin: 0.625rem;
+      }
+    }
+    .right-nav {
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+    }
   }
+
   .nav--items {
     display: flex;
-    gap: 1rem;
     font-weight: 700;
     font-size: 1.2rem;
     margin-right: 30px;
-  }
-  .nav--item {
-    font-family: inherit;
-    text-decoration: none;
-    overflow-y: clip;
-    color: var(--color-dark);
-  }
-  .nav--profile {
-    width: 3.75rem;
-    height: 3.75rem;
-    border-radius: 50%;
-    margin: 0.625rem;
-  }
-  .activeLink {
-    text-decoration: underline;
+    border: 2px solid var(--color-dark);
+    padding: 0.5em 1em;
+    isolation: isolate;
+    corner-style: squircle;
+    border-radius: var(--squircle-radius);
+    anchor-name: --nav-items;
+    &:after {
+      z-index: -1;
+      display: block;
+      content: "";
+      background: var(--color-dark);
+      position: absolute;
+      position-anchor: --nav-items;
+      top: anchor(bottom);
+      left: calc(anchor(left) + 1rem);
+      right: calc(anchor(right) + 1rem);
+      bottom: calc(anchor(bottom) + 0.25rem);
+      transition: 300ms;
+    }
+    &:has(a:hover)::after {
+      top: anchor(top);
+      left: anchor(left);
+      right: anchor(right);
+      bottom: anchor(bottom);
+      corner-style: squircle;
+      border-radius: 10px;
+      height: unset;
+    }
+    .nav--item {
+      font-family: inherit;
+      text-decoration: none;
+      overflow-y: clip;
+      color: var(--color-dark);
+      padding: 0.25rem 0.5rem;
+      &:hover {
+        anchor-name: --nav-items;
+        color: var(--color-light);
+      }
+    }
+    .activeLink {
+      text-decoration: underline;
+    }
   }
 </style>
