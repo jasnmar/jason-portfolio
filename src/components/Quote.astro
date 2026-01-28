@@ -1,0 +1,30 @@
+---
+
+interface Props {
+  quote: {
+    id: number
+    quote: string
+  }
+}
+const data = Astro.props.quote
+---
+
+<div>
+  <quote>"{data.quote}"</quote>  
+</div>
+
+<style>
+  div {
+    display:flex;
+  }
+  quote {
+    font-size: 1rem;
+    border:2px solid var(--color-pale);
+    border-radius:var(--border-radius);
+    margin:1rem .5rem;
+    width:250px;
+    display:block;
+    flex:2 2 250px;
+    padding:1rem;
+  }
+</style>

@@ -1,5 +1,9 @@
 ---
 import arrowhtml from "../assets/icons/arrowsimple.svg?raw"
+import { getCollection } from "astro:content"
+import Quote from "./Quote.astro"
+const quotes = await getCollection("quotes")
+
 
 interface Props {
   data: {
@@ -12,6 +16,7 @@ interface Props {
     bullets: string[]
     startDate: string
     endDate: string
+    quotes?: boolean
   }
 }
 const data = Astro.props.data
@@ -50,7 +55,15 @@ const data = Astro.props.data
         )
       }
     </div>
-  </div>
+    { data.quotes && 
+      <div class="quote--container">
+        {quotes.map((quote) => 
+         <Quote quote={quote.data as any}/>
+        )
+        </div>
+        }
+        </div>
+  </div}
 </div>
 
 <script>
@@ -94,14 +107,10 @@ const data = Astro.props.data
       .arrow {
         width: 1.5rem;
         aspect-ratio: 1;
-
         .str0 {
           stroke: var(--color-light);
         }
-        color: red;
 
-        stroke: red;
-        fill: red;
       }
     }
 
@@ -123,7 +132,6 @@ const data = Astro.props.data
       gap: 1rem;
       border-radius: 0px 0px var(--border-radius) var(--border-radius);
       border: 2px solid var(--color-dark);
-      max-height: 500px;
       overflow: hidden;
       transition:
         max-height 0.5s ease-in-out,
@@ -147,6 +155,12 @@ const data = Astro.props.data
       max-height: 0px;
       padding-block: 0;
       border-width: 0 2px;
+    }
+    .quote--container {
+      display:grid;
+      /* gap:1rem; */
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-rows: masonry;
     }
   }
 </style>
