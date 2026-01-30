@@ -11,17 +11,19 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
 
 <nav class="nav">
   <div class="left-nav">
-    <picture>
-      <source
+    <a href="/">
+      <picture>
+        <source
         type="image/webp"
         srcset={`${jasonWebp1x} 120w, ${jasonWebp2x} 180w, ${jasonWebp3x} 360w`}
-      />
-      <source
+        />
+        <source
         type="image/png"
         srcset={`${jasonImage1x} 120w, ${jasonImage2x} 180w, ${jasonImage3x} 360w`}
-      />
-      <img alt="Jason's Head" class="nav--profile" src={jasonImage3x} />
-    </picture>
+        />
+        <img alt="Jason's Head" class="nav--profile" src={jasonImage3x} />
+      </picture>
+    </a>
   </div>
   <div class="right-nav">
     <div class="nav--items">
@@ -91,11 +93,18 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
       background: var(--color-dark);
       position: absolute;
       position-anchor: --nav-items;
-      top: anchor(bottom);
-      left: calc(anchor(left) + 1rem);
-      right: calc(anchor(right) + 1rem);
-      bottom: calc(anchor(bottom) + 0.25rem);
+      height:.5rem;
+      left: calc(anchor(left) + .5rem);
+      right: calc(anchor(right) + .5rem);
+      bottom: calc(anchor(bottom) - 0.5rem);
+      corner-style: squircle;
+      border-radius: var(--squircle-radius);
       transition: 300ms;
+    }
+    &:not(:has(a:hover)) {
+      .activeLink {
+        anchor-name: --nav-items;
+      }
     }
     &:has(a:hover)::after {
       top: anchor(top);
@@ -118,7 +127,8 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
       }
     }
     .activeLink {
-      text-decoration: underline;
+      /* text-decoration: underline; */
+      
     }
   }
 </style>
