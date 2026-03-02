@@ -1,5 +1,6 @@
 ---
 const { pathname } = Astro.url
+const isActive = (path) => pathname === path || pathname === `${path}/`
 import Theme from "./Theme.astro"
 import jasonWebp1x from "../assets/images/jason1x.webp?url"
 import jasonWebp2x from "../assets/images/jason2x.webp?url"
@@ -14,12 +15,12 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
     <a href="/">
       <picture>
         <source
-        type="image/webp"
-        srcset={`${jasonWebp1x} 120w, ${jasonWebp2x} 180w, ${jasonWebp3x} 360w`}
+          type="image/webp"
+          srcset={`${jasonWebp1x} 120w, ${jasonWebp2x} 180w, ${jasonWebp3x} 360w`}
         />
         <source
-        type="image/png"
-        srcset={`${jasonImage1x} 120w, ${jasonImage2x} 180w, ${jasonImage3x} 360w`}
+          type="image/png"
+          srcset={`${jasonImage1x} 120w, ${jasonImage2x} 180w, ${jasonImage3x} 360w`}
         />
         <img alt="Jason's Head" class="nav--profile" src={jasonImage3x} />
       </picture>
@@ -27,18 +28,18 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
   </div>
   <div class="right-nav">
     <div class="nav--items">
-      <a href="/" class:list={["nav--item", { activeLink: pathname === "/" }]}>
+      <a href="/" class:list={["nav--item", { activeLink: isActive("/") }]}>
         Home
       </a>
       <a
         href="/projects"
-        class:list={["nav--item", { activeLink: pathname === "/projects" }]}
+        class:list={["nav--item", { activeLink: isActive("/projects") }]}
       >
         Projects
       </a>
       <a
         href="/about"
-        class:list={["nav--item", { activeLink: pathname === "/about" }]}
+        class:list={["nav--item", { activeLink: isActive("/about") }]}
       >
         About
       </a>
@@ -70,8 +71,7 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
         margin: 0.625rem;
       }
       @container nav (width < 400px) {
-        display:none;
-
+        display: none;
       }
     }
     .right-nav {
@@ -95,13 +95,13 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
     &:after {
       z-index: -1;
       display: block;
-      content:"";
+      content: "";
       background: var(--color-dark);
       position: absolute;
       position-anchor: --nav-items;
-      height:.5rem;
-      left: calc(anchor(left) + .5rem);
-      right: calc(anchor(right) + .5rem);
+      height: 0.5rem;
+      left: calc(anchor(left) + 0.5rem);
+      right: calc(anchor(right) + 0.5rem);
       bottom: calc(anchor(bottom) - 0.5rem);
 
       border-radius: var(--squircle-radius);
@@ -134,7 +134,6 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
     }
     .activeLink {
       /* text-decoration: underline; */
-      
     }
   }
 </style>
