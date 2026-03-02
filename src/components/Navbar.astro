@@ -91,11 +91,11 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
     isolation: isolate;
     corner-style: squircle;
     border-radius: var(--squircle-radius);
-    anchor-name: --nav-items;
+    /* anchor-name: --nav-items; */
     &:after {
       z-index: -1;
       display: block;
-      content: "";
+      content:"";
       background: var(--color-dark);
       position: absolute;
       position-anchor: --nav-items;
@@ -103,7 +103,7 @@ import jasonImage3x from "../assets/images/jason3x.png?url"
       left: calc(anchor(left) + .5rem);
       right: calc(anchor(right) + .5rem);
       bottom: calc(anchor(bottom) - 0.5rem);
-      corner-style: squircle;
+
       border-radius: var(--squircle-radius);
       transition: 300ms;
     }
