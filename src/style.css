@@ -81,6 +81,10 @@ a:hover {
 
   --bg-color: var(--color-light);
   --text-color: var(--color-darkest);
+
+  /* --bento-canvas: var(--color-light);
+  --bento-text: var(--color-darkest);
+  --bento-border-color: var(--color-dark); */
 }
 
 html[data-theme="dark"] {
@@ -95,7 +99,9 @@ html[data-theme="dark"] {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  min-height: 100vh;
+  min-height: 100svh;
+  display:grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .page-title {

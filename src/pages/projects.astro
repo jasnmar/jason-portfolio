@@ -6,7 +6,7 @@ const projects = await getCollection('projects')
 
 ---
 <Layout>
- 
+ <h1>Projects</h1>
   {projects.map(project => (
     <Project 
         name={project.data.name} 
@@ -20,5 +20,8 @@ const projects = await getCollection('projects')
 </Layout>
 
 <style>
+h1 {
+  margin-inline: 1rem;
+}
 
 </style>

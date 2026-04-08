@@ -10,14 +10,19 @@ const jobs = await getCollection("jobs")
 <Layout>
   <h1>About me</h1>
   <section>
-    <h2>Work History</h2>
-    <div class="jobs--container">
+    <header>
+      <h2>Work History</h2>
+    </header>
+    <main class="jobs--container">
+      <dl>
       {
         jobs.map((job) => {
           return <Job data={job.data as any} />
         })
       }
-    </div>
+
+      </dl>
+    </main>
   </section>
   <section>
 

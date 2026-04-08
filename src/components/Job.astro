@@ -1,9 +1,7 @@
 ---
 import arrowhtml from "../assets/icons/arrowsimple.svg?raw"
 import { getCollection } from "astro:content"
-import Quote from "./Quote.astro"
 const quotes = await getCollection("quotes")
-
 
 interface Props {
   data: {
@@ -20,10 +18,12 @@ interface Props {
   }
 }
 const data = Astro.props.data
+
+const quotesSorted = quotes.sort((a, b) => b.data.quote.length - a.data.quote.length)
 ---
 
 <div class="jobcard--container">
-  <div id={"header-" + data.id} class="jobcard--header">
+  <dt id={"header-" + data.id} class="jobcard--header">
     <div class="jobcard--title">
       <span id={"arrow-" + data.id} class="arrow jobcard--arrow">
         <Fragment set:html={arrowhtml} />
@@ -31,52 +31,65 @@ const data = Astro.props.data
       <p>{data.employer} - {data.position}, {data.location}</p>
     </div>
     <p>{data.startDate} - {data.endDate}</p>
-  </div>
+  </dt>
 
-  <div id={"desc-" + data.id} class="jobcard--body collapse">
-    <div class="jobcard--description">
-      {
-        data.description &&
-          data.description.map((sentence) => {
-            return <p>{sentence}</p>
-          })
-      }
-    </div>
-    <div class="jobcard--bullets">
-      {
-        data.bullets ? (
-          <ul>
-            {data.bullets.map((bullet) => {
-              return <li>{bullet}</li>
-            })}
-          </ul>
-        ) : (
-          ""
-        )
-      }
-    </div>
-    { data.quotes && 
-      <div class="quote--container">
-        {quotes.map((quote) => 
-         <Quote quote={quote.data as any}/>
-        )
-        </div>
+  <dd id={"desc-" + data.id} class="jobcard--body collapse">
+    <div class="jobcard--body-inner">
+      <div class="jobcard--description">
+        {
+          data.description &&
+            data.description.map((sentence) => {
+              return <p>{sentence}</p>
+            })
         }
-        </div>
-  </div}
+      </div>
+      <div class="jobcard--bullets">
+        {
+          data.bullets ? (
+            <ul>
+              {data.bullets.map((bullet) => {
+                return <li>{bullet}</li>
+              })}
+            </ul>
+          ) : (
+            ""
+          )
+        }
+      </div>
+      {
+        data.quotes && (
+          <div class="quote--container">
+            {quotesSorted.map((quote) => (
+              <div class="quote--card">
+                <blockquote>{quote.data.quote}</blockquote>
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </dd>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const toggleButtons = document.querySelectorAll(".jobcard--arrow")
     const headers = document.querySelectorAll(".jobcard--header")
     headers.forEach((header: Element) => {
       header.addEventListener("click", (e) => {
         const target = e.currentTarget as HTMLElement
+        if (!target.id) return
+
         const jobId = target.id.split("-")[1]
+        if (!jobId) return
+
         const descId = "desc-" + jobId
+
         const description = document.getElementById(descId)
+        if (!description) return
+
         const arrow = document.getElementById("arrow-" + jobId)
+        if (!arrow) return
+
         arrow.classList.toggle("rotate")
         description.classList.toggle("collapse")
       })
@@ -89,78 +102,101 @@ const data = Astro.props.data
     display: flex;
     flex-direction: column;
     padding: 0.5rem 1rem;
-
-    .jobcard--header {
-      color: var(--color-light);
-      display: flex;
-      font-size: 1.2rem;
-      font-weight: 700;
-      flex-direction: row;
-      justify-content: space-between;
-      background-color: var(--color-dark);
-      border-radius: var(--border-radius) var(--border-radius) 0px 0px;
-      padding: 0.5rem;
-    }
-    .jobcard--title {
-      display: flex;
-      flex-direction: row;
-      .arrow {
-        width: 1.5rem;
-        aspect-ratio: 1;
-        .str0 {
-          stroke: var(--color-light);
-        }
-
-      }
-    }
-
-    .jobcard--arrow {
-      width: 1.5rem;
-      height: 1.5rem;
-      transition: transform 0.5s ease-in-out;
-      margin-right: 0.5rem;
-    }
-    .rotate {
-      transform: rotate(90deg);
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .jobcard--body {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2em;
-      gap: 1rem;
-      border-radius: 0px 0px var(--border-radius) var(--border-radius);
-      border: 2px solid var(--color-dark);
-      overflow: hidden;
-      transition:
-        max-height 0.5s ease-in-out,
-        padding-block 0.5s ease-in-out;
-      padding-block: 0.5rem;
-      .jobcard--description {
-        padding-inline: 0.5rem;
-        margin-top: 0;
-      }
-      ul {
-        padding-inline: 1.5em;
-      }
-      li {
-        margin-block: 0.2rem;
-      }
-      p {
-        margin-top: 0.5em;
-      }
-    }
-    .collapse {
-      max-height: 0px;
-      padding-block: 0;
-      border-width: 0 2px;
-    }
-    .quote--container {
-      display:grid;
-      /* gap:1rem; */
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      grid-template-rows: masonry;
+  }
+  .jobcard--header {
+    color: var(--color-light);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--color-dark);
+    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+    padding: 0.5rem;
+    p {
+      margin: 0;
     }
   }
+  .jobcard--title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .arrow {
+      width: 1.5rem;
+      aspect-ratio: 1;
+      .str0 {
+        stroke: var(--color-light);
+      }
+    }
+  }
+
+  .jobcard--arrow {
+    display: flex;
+    align-items: center;
+    width: 1.5rem;
+    transition: transform 0.5s ease-in-out;
+    margin-right: 0.5rem;
+  }
+  .rotate {
+    transform: rotate(90deg);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .jobcard--body {
+    display: grid;
+    grid-template-rows: 1fr;
+    line-height: 1.5;
+    border-radius: 0px 0px var(--border-radius) var(--border-radius);
+    border: 2px solid var(--color-dark);
+    overflow: hidden;
+    transition: grid-template-rows 0.5s ease-in-out;
+
+  }
+  .jobcard--body-inner {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .jobcard--description {
+    padding-inline: 0.5rem;
+    margin-top: 0;
+  }
+  ul {
+    padding-inline: 1.5em;
+  }
+  li {
+    margin-block: 0.2rem;
+  }
+  p {
+    margin-top: 0.5em;
+  }
+
+  .collapse {
+    grid-template-rows: 0fr;
+  }
+  .quote--container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1em;
+    padding: 0.5rem;
+  }
+  .quote--container > * {
+    background-color: var(--bento-canvas, var(--color-light));
+    color: var(--bento-text, var(--text-color));
+    border: 2px solid;
+    border-color: var(--bento-border-color, var(--color-dark));
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+  }
+  blockquote {
+    font-size: 1rem;
+    width: 250px;
+    display: block;
+    padding: 0 0 0 1rem;
+    text-wrap: wrap;
+    line-height: 1.5;
+  }
+
 </style>
