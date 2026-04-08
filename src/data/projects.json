@@ -1,6 +1,20 @@
 [
   {
-    "id": 1,
+    "id":50,
+    "name": "Oly",
+    "description": "Oly is a modern, community-oriented social platform designed for Bronco Off-Roadeo guests to share experiences through visuals and text. The application features a responsive interface with an emphasis on visual aesthetics.",
+    "images": [
+      { "image": "assets/images/projectImages/oly1" },
+      { "image": "assets/images/projectImages/oly2" },
+      { "image": "assets/images/projectImages/oly3" },
+      { "image": "assets/images/projectImages/oly4" }
+    ],
+    "goals": ["React", "Typescript", "Firebase", "Supabase"],
+    "deploy": "https://oly.offroadeoguides.com"
+  },
+
+  {
+    "id": 60,
     "name": "Password Game",
     "description": "We recently took a little vacation with my parents, and started playing the old board game password, while we were on the trip. Since we're old, we sometimes had trouble reading the password cards, and I decided to create a digital version. There's a simple and a managed version. The simple version just gives you some words that you can walk through and basic scoring. The managed version has the ability to sync data on the back end and a shared score between players on different teams.",
     "images": [
@@ -13,7 +27,7 @@
     "deploy": "https://password.jasonmartin.me"
   },
   {
-    "id": 2,
+    "id": 70,
     "name": "VanLife",
     "description": "VanLife was created as part of the Scrimba.com Front End Developer Career Path. The concept is something of a VRBO, but for Vans, rather than properties. There's a 'shopper' experience as well as a 'renter' experience. The primary goal was learning about React Router, but it also reinforced a number of different basic React concepts.",
     "source": "https://github.com/jasnmar/scrimba-ar-vanLife",
@@ -57,7 +71,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 80,
     "name": "Quizzical",
     "description": "Quizzical was done at the end of the React Basics course as part of the Scrimba.com Front End Developer Carrer Path. I used question components to build the quiz itself, all of the quiz data comes from the opentrivia DB.",
     "source": "https://github.com/jasnmar/scrimba-rb-quizzical",
@@ -70,7 +84,7 @@
     "goals": ["React", "React Components", "Managing State", "Fetching Data"]
   },
   {
-    "id": 4,
+    "id": 90,
     "name": "Tensies",
     "description": "A simple number matching game with dice that tracks the lowest score. It uses local storage to keep track of the lowest score achieved. Each of the die are React Components.",
     "source": "https://github.com/jasnmar/scrimba-rb-tensies",
@@ -88,18 +102,20 @@
     ]
   },
   {
-    "id": 5,
+    "id": 100,
     "name": "Logbook",
     "description": "Created to assist the guides at Bronco Off-Roadeo. To better understand how much experience we have as guides we are required to keep logbooks of the time we spend instructing, off-roading, training etc. Also, if we want to get paid, we are required to fill out a time sheet and submit an invoice. These 3 tasks had been completely separate from one another. This litte app combines those three tasks, so as long as you fill out your logbook your invoice and timesheet are generated for you. It is intended as a mobile first experience, so that guides can quickly (30 seconds) log their work for the day when they get back to basecamp from their phones. I wrote this before I had taken any formal web dev courses, so it's an interesting mixture of things.",
     "images": [
       { "image": "assets/images/projectImages/Guides1" },
       { "image": "assets/images/projectImages/Guides2" },
-      { "image": "assets/images/projectImages/Guides3" }
+      { "image": "assets/images/projectImages/Guides3" },
+      { "image": "assets/images/projectImages/Guides4" },
+      { "image": "assets/images/projectImages/Guides5" }
     ],
     "goals": ["Node", "Bootstrap", "Handlebars", "Express", "REST APIs"]
   },
   {
-    "id": 6,
+    "id": 105,
     "name": "Off-Roadeo Guides",
     "description": "Assists past Bronco Off-roadeo guests by providing them with a way to refresh themselves after their day at Bronco Off-Roadeo. We commonly get questions about whether or not the information we go through during the day is available somewhere other than what we talke about during the day itself. This is a solution to that.",
     "images": [
@@ -108,12 +124,12 @@
       { "image": "assets/images/projectImages/ORGuides3" },
       { "image": "assets/images/projectImages/ORGuides4" }
     ],
-    "goals": ["React", "Typescript", "React Router"],
+    "goals": ["Astro", "Typescript"],
     "source": "https://github.com/jasnmar/guides-home",
     "deploy": "https://www.offroadeoguides.com"
   },
   {
-    "id": 7,
+    "id": 107,
     "name": "Memory Matching Game",
     "description": "This is a classic memory game, but presented in a mobile compatible web interface. While it was initially done as part of a tutorial, it has been customized to meet the needs of my 2 year old Grandauter rather than be a general purpose game.",
     "images": [
@@ -126,7 +142,7 @@
     "deploy": "https://memory-game-nhp.netlify.app/"
   },
   {
-    "id": 8,
+    "id": 108,
     "name": "Live Edge Wood and Epoxy Table",
     "description": "Yes, a real world object, not just something on the internet. From start to finish this project took roughtly 3 years. It took a little over 2 years for the wood, that when I first encountered it was in the form of a standing tree, to dry enough to use in a project. Then there was a few months working in the basement pouring a layer of epoxy, then waiting 24 hours for it to dry. Finally finishing took probably at least a few weeks starting with 40 grit sandpaper and working all the way up to 2000 grit.",
     "images": [

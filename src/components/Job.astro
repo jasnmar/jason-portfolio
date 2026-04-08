@@ -1,6 +1,7 @@
 ---
 import arrowhtml from "../assets/icons/arrowsimple.svg?raw"
 import { getCollection } from "astro:content"
+import Quote from "./Quote.astro"
 const quotes = await getCollection("quotes")
 
 interface Props {
@@ -60,9 +61,7 @@ const quotesSorted = quotes.sort((a, b) => b.data.quote.length - a.data.quote.le
         data.quotes && (
           <div class="quote--container">
             {quotesSorted.map((quote) => (
-              <div class="quote--card">
-                <blockquote>{quote.data.quote}</blockquote>
-              </div>
+              <Quote quote={quote.data.quote} />
             ))}
           </div>
         )
@@ -182,21 +181,6 @@ const quotesSorted = quotes.sort((a, b) => b.data.quote.length - a.data.quote.le
     gap: 1em;
     padding: 0.5rem;
   }
-  .quote--container > * {
-    background-color: var(--bento-canvas, var(--color-light));
-    color: var(--bento-text, var(--text-color));
-    border: 2px solid;
-    border-color: var(--bento-border-color, var(--color-dark));
-    border-radius: var(--border-radius);
-    padding: 0.5rem;
-  }
-  blockquote {
-    font-size: 1rem;
-    width: 250px;
-    display: block;
-    padding: 0 0 0 1rem;
-    text-wrap: wrap;
-    line-height: 1.5;
-  }
+
 
 </style>
