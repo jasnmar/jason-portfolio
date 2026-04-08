@@ -1,28 +1,30 @@
 ---
 interface Props {
-  quote: {
-    id: number
-    quote: string
-  }
+  quote: string
 }
-const { quote: data } = Astro.props
+const { quote } = Astro.props
 ---
 
-<quote>"{data.quote}"</quote>
+<div class="quote--card">
+  <blockquote>{quote}</blockquote>
+</div>
 
 <style>
-  div {
-    display: flex;
-  }
-
-  quote {
-    font-size: 1rem;
-    border: 2px solid var(--bento-border-color);
+  .quote--card {
+    background-color: var(--bento-canvas, var(--color-light));
+    color: var(--bento-text, var(--text-color));
+    border: 2px solid;
+    border-color: var(--bento-border-color, var(--color-dark));
     border-radius: var(--border-radius);
-    margin: 1rem 0.5rem;
+    padding: 0.5rem;
+  }
+  blockquote {
+    font-size: 1rem;
     width: 250px;
     display: block;
-    flex: 2 2 250px;
-    padding: 1rem;
+    padding: 0 0 0 1rem;
+    text-wrap: wrap;
+    line-height: 1.5;
+    margin: 0;
   }
 </style>

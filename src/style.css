@@ -22,7 +22,6 @@ body {
 img,
 picture {
   max-width: 100%;
-  /* display: block; */
 }
 
 html {
@@ -81,10 +80,6 @@ a:hover {
 
   --bg-color: var(--color-light);
   --text-color: var(--color-darkest);
-
-  /* --bento-canvas: var(--color-light);
-  --bento-text: var(--color-darkest);
-  --bento-border-color: var(--color-dark); */
 }
 
 html[data-theme="dark"] {
@@ -102,6 +97,8 @@ body {
   min-height: 100svh;
   display:grid;
   grid-template-rows: auto 1fr auto;
+  container-type: inline-size;
+  container-name: body;
 }
 
 .page-title {
